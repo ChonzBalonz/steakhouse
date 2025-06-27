@@ -39,9 +39,6 @@ const HomePage = () => {
             <h1 className="text-5xl md:text-7xl font-bold pb-44 font-heading">
               SizzleSteakHouse
             </h1>
-            <p className="text-lg md:text-2xl mt-4">
-              Experience the best steak in town
-            </p>
           </div>
 
           <div className="w-full md:w-1/4 p-8 flex flex-col justify-center text-white bg-black bg-opacity-75">

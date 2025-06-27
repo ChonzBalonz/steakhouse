@@ -8,6 +8,9 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <div className="bg-red-600 text-white text-center p-2 sticky top-[72px] z-40 overflow-hidden">
+        <p className="font-bold marquee">Free delivery on orders over $25!</p>
+      </div>
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
