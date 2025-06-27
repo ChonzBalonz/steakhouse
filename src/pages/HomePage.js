@@ -1,7 +1,6 @@
 import React from "react";
 import { useInView } from "../hooks/useInView";
-import steakGif from "../images/steak.gif"; // This line imports your GIF
-import GifBackground from "../components/GifBackground";
+import steakGif from "../images/steak.gif"; // Import the GIF
 
 const HomePage = () => {
   const [mapRef, mapIsInView] = useInView({ threshold: 0.5 });
@@ -12,14 +11,19 @@ const HomePage = () => {
         mapIsInView ? "bg-black" : "bg-gray-100"
       }`}
     >
+      {/* Top Section with GIF background */}
       <div className="relative h-screen">
-        {/* This passes the imported GIF to our component */}
-        <GifBackground src={steakGif} />
+        {/* Use a standard img tag for the GIF */}
+        <img
+          src={steakGif}
+          alt="Sizzling steak"
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        />
 
         <div className="absolute inset-0 bg-black opacity-60 z-10"></div>
 
         <div className="relative z-20 flex flex-col md:flex-row h-full">
-          <div className="w-full md:w-1/4 p-8 flex flex-col justify-center text-white">
+          <div className="w-full md:w-1/4 p-8 flex flex-col justify-center text-white bg-black bg-opacity-75">
             <h2 className="text-3xl font-bold mb-4 text-center">About Us</h2>
             <p className="leading-relaxed text-center">
               Welcome to The Sizzling Steak, where we serve only the finest cuts
@@ -36,11 +40,11 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="w-full md:w-1/4 p-8 flex flex-col justify-center text-white">
+          <div className="w-full md:w-1/4 p-8 flex flex-col justify-center text-white bg-black bg-opacity-75">
             <h2 className="text-3xl font-bold mb-4 text-center">
               Hours & Contact
             </h2>
-            <div className="text-lg text-center space-y-4">
+            <div className="text-lg text-center space-y-4 ">
               <div>
                 <h3 className="text-xl font-semibold mb-2">Business Hours</h3>
                 <p>Monday - Friday: 5:00 PM - 10:00 PM</p>
@@ -56,6 +60,7 @@ const HomePage = () => {
         </div>
       </div>
 
+      {/* Google Maps Embed */}
       <div ref={mapRef} className="py-20">
         <div
           className={`container mx-auto px-6 md:px-12 text-center transform transition-transform duration-1000 ${
