@@ -24,7 +24,9 @@ const HomePage = () => {
 
         <div className="relative z-20 flex flex-col md:flex-row h-full">
           <div className="w-full md:w-1/4 p-8 flex flex-col justify-center text-white bg-black bg-opacity-75">
-            <h2 className="text-3xl font-bold mb-4 text-center">About Us</h2>
+            <h2 className="text-3xl font-bold mb-4 text-center font-heading">
+              About Us
+            </h2>
             <p className="leading-relaxed text-center">
               Welcome to The Sizzling Steak, where we serve only the finest cuts
               of meat, cooked to perfection. Our mission is to provide an
@@ -34,7 +36,9 @@ const HomePage = () => {
           </div>
 
           <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-white text-center p-8">
-            <h1 className="text-5xl md:text-7xl font-bold">SizzleSteakHouse</h1>
+            <h1 className="text-5xl md:text-7xl font-bold pb-44 font-heading">
+              SizzleSteakHouse
+            </h1>
             <p className="text-lg md:text-2xl mt-4">
               Experience the best steak in town
             </p>
@@ -68,7 +72,7 @@ const HomePage = () => {
           }`}
         >
           <h2
-            className={`text-4xl font-bold mb-8 transition-colors duration-1000 ${
+            className={`text-4xl font-bold mb-8 transition-colors duration-1000 font-heading ${
               mapIsInView ? "text-white" : "text-gray-800"
             }`}
           >

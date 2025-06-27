@@ -6,13 +6,14 @@ const Navbar = () => {
     <header className="bg-black bg-opacity-80 text-white shadow-lg sticky top-0 z-50 backdrop-blur-sm">
       <div className="container mx-auto flex items-center justify-between p-4">
         {/* Logo */}
+        //...
         <Link
           to="/"
-          className="text-3xl font-extrabold text-red-500 tracking-wider"
+          className="text-3xl font-extrabold text-red-500 tracking-wider font-heading"
         >
           SizzleSteakHouse
         </Link>
-
+        ... //
         <div className="flex items-center space-x-6">
           {/* Menu Button */}
           <Link to="/menu">
