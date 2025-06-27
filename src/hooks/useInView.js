@@ -5,7 +5,7 @@ export const useInView = (options) => {
   const ref = useRef(null);
 
   useEffect(() => {
-    const element = ref.current; // Capture the current ref value
+    const element = ref.current;
     const observer = new IntersectionObserver(([entry]) => {
       setIsInView(entry.isIntersecting);
     }, options);
@@ -16,10 +16,10 @@ export const useInView = (options) => {
 
     return () => {
       if (element) {
-        observer.unobserve(element); // Use the captured value in the cleanup
+        observer.unobserve(element);
       }
     };
-  }, [ref, options]); // The dependency array is correct as is
+  }, [ref, options]);
 
   return [ref, isInView];
 };

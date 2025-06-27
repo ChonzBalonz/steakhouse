@@ -1,9 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useInView } from "../hooks/useInView";
-import steakGif from "../images/steak.gif"; // Import the GIF
+import steakGif from "../images/steak.gif";
 
 const HomePage = () => {
   const [mapRef, mapIsInView] = useInView({ threshold: 0.5 });
+  const [buttonRef, buttonIsInView] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+    rootMargin: "0px 0px -100px 0px",
+  });
+  const navigate = useNavigate();
+
+  const handleOrderNowClick = () => {
+    navigate("/menu", { state: { scrollToOrderForm: true } });
+  };
 
   return (
     <div
@@ -13,15 +24,12 @@ const HomePage = () => {
     >
       {/* Top Section with GIF background */}
       <div className="relative h-screen">
-        {/* Use a standard img tag for the GIF */}
         <img
           src={steakGif}
           alt="Sizzling steak"
           className="absolute top-0 left-0 w-full h-full object-cover z-0"
         />
-
         <div className="absolute inset-0 bg-black opacity-60 z-10"></div>
-
         <div className="relative z-20 flex flex-col md:flex-row h-full">
           <div className="w-full md:w-1/4 p-8 flex flex-col justify-center text-white bg-black bg-opacity-75">
             <h2 className="text-3xl font-bold mb-4 text-center font-heading">
@@ -34,18 +42,28 @@ const HomePage = () => {
               cozy atmosphere.
             </p>
           </div>
-
           <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-white text-center p-8">
             <h1 className="text-5xl md:text-7xl font-bold pb-44 font-heading">
               SizzleSteakHouse
             </h1>
+            <p className="text-lg md:text-2xl mt-4">
+              Experience the best steak in town
+            </p>
+            <button
+              ref={buttonRef}
+              onClick={handleOrderNowClick}
+              className={`mt-8 bg-red-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all duration-1000 transform ${
+                buttonIsInView ? "scale-110" : "scale-100"
+              }`}
+            >
+              Order Now
+            </button>
           </div>
-
           <div className="w-full md:w-1/4 p-8 flex flex-col justify-center text-white bg-black bg-opacity-75">
             <h2 className="text-3xl font-bold mb-4 text-center">
               Hours & Contact
             </h2>
-            <div className="text-lg text-center space-y-4 ">
+            <div className="text-lg text-center space-y-4">
               <div>
                 <h3 className="text-xl font-semibold mb-2">Business Hours</h3>
                 <p>Monday - Friday: 5:00 PM - 10:00 PM</p>
@@ -60,7 +78,6 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-
       {/* Google Maps Embed */}
       <div ref={mapRef} className="py-20">
         <div

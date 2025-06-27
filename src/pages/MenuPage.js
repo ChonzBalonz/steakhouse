@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { menuData } from "../data/menuData";
 import MenuItemCard from "../components/MenuItemCard";
+import OrderForm from "../components/OrderForm";
 
 const MenuPage = () => {
+  const location = useLocation();
+  const orderFormRef = useRef(null);
+
+  useEffect(() => {
+    if (location.state?.scrollToOrderForm && orderFormRef.current) {
+      orderFormRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
+
+  const handleScrollToOrderForm = () => {
+    orderFormRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="bg-gray-900 min-h-screen text-white">
       <div className="container mx-auto px-4 py-12">
@@ -17,7 +32,11 @@ const MenuPage = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {menuData.appetizers.map((item) => (
-              <MenuItemCard key={item.id} item={item} />
+              <MenuItemCard
+                key={item.id}
+                item={item}
+                onOrderClick={handleScrollToOrderForm}
+              />
             ))}
           </div>
         </div>
@@ -29,7 +48,11 @@ const MenuPage = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {menuData.steaks.map((item) => (
-              <MenuItemCard key={item.id} item={item} />
+              <MenuItemCard
+                key={item.id}
+                item={item}
+                onOrderClick={handleScrollToOrderForm}
+              />
             ))}
           </div>
         </div>
@@ -41,10 +64,15 @@ const MenuPage = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {menuData.sides.map((item) => (
-              <MenuItemCard key={item.id} item={item} />
+              <MenuItemCard
+                key={item.id}
+                item={item}
+                onOrderClick={handleScrollToOrderForm}
+              />
             ))}
           </div>
         </div>
+        <OrderForm ref={orderFormRef} />
       </div>
     </div>
   );

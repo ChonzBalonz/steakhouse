@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 
-const MenuItemCard = ({ item }) => {
+const MenuItemCard = ({ item, onOrderClick }) => {
   const [cookingOption, setCookingOption] = useState(
     item.options ? item.options[0] : null
   );
 
   const handleAddToOrder = () => {
-    // We will use this in a later step
-    // const itemToAdd = {
-    //   ...item,
-    //   selectedOption: cookingOption,
-    // };
+    onOrderClick();
     alert(`${item.name} added to order!`);
   };
 
