@@ -1,20 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header className="bg-black bg-opacity-80 text-white shadow-lg sticky top-0 z-50 backdrop-blur-sm">
       <div className="container mx-auto flex items-center justify-between p-4">
         {/* Logo */}
-        //...
         <Link
           to="/"
           className="text-3xl font-extrabold text-red-500 tracking-wider font-heading"
         >
           SizzleSteakHouse
         </Link>
-        ... //
-        <div className="flex items-center space-x-6">
+
+        {/* Hamburger Menu for Mobile */}
+        <div className="md:hidden">
+          <button onClick={() => setIsOpen(!isOpen)}>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center space-x-6">
           {/* Menu Button */}
           <Link to="/menu">
             <button className="bg-white text-gray-900 font-bold py-2 px-6 rounded-lg hover:bg-red-500 hover:text-white transition duration-300">
@@ -38,7 +60,7 @@ const Navbar = () => {
               >
                 <path
                   fillRule="evenodd"
-                  d="M12.315 2c-4.043 0-4.544.018-6.14.09C4.542 2.176 3.166 2.628 2.176 3.62c-.99.99-.998 2.37-1.084 3.99C1.008 9.225 1 9.727 1 12.28c0 2.553.008 3.054.092 4.65.086 1.62.536 3 1.526 3.99.99.99 2.37.998 3.99 1.084 1.597.072 2.097.09 6.14.09 4.043 0 4.544-.018 6.14-.09 1.62-.086 3-.536 3.99-1.526.99-.99.998-2.37 1.084-3.99.072-1.597.09-2.097.09-6.14s-.018-4.544-.09-6.14c-.086-1.62-.536-3-1.526-3.99-.99-.99-2.37-.998-3.99-1.084-1.597-.072-2.097-.09-6.14-.09zM12 4.168c3.92 0 4.364.015 5.9.088 1.4.063 2.296.365 2.78.85s.787 1.38.85 2.78c.073 1.537.088 1.98.088 5.9s-.015 4.364-.088 5.9c-.063 1.4-.365 2.296-.85 2.78s-1.38.787-2.78.85c-1.537.073-1.98.088-5.9.088s-4.364-.015-5.9-.088c-1.4-.063-2.296-.365-2.78-.85s-.787-1.38-.85-2.78c-.073-1.537-.088-1.98-.088-5.9s.015-4.364.088-5.9c.063-1.4.365-2.296.85-2.78s1.38-.787 2.78-.85c1.537-.073 1.98-.088 5.9-.088zM12 8.27a3.72 3.72 0 100 7.44 3.72 3.72 0 000-7.44zM12 14a2 2 0 110-4 2 2 0 010 4zm5.5-6.5a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"
+                  d="M12.315 2c-4.043 0-4.544.018-6.14.09C4.542 2.176 3.166 2.628 2.176 3.62c-.99.99-.998 2.37-1.084 3.99C1.008 9.225 1 9.727 1 12.28c0 2.553.008 3.054.092 4.65.086 1.62.536 3 1.526 3.99.99.99 2.37.998 3.99 1.084 1.597.072 2.097.09 6.14.09 4.043 0 4.544-.018 6.14-.09 1.62-.086 3-.536 3.99-1.526.99-.99.998-2.37 1.084-3.99.072-1.597.09-2.097.09-6.14s-.018-4.544-.09-6.14c-.086-1.62-.536-3-1.526-3.99-.99-.99-2.37-.998-3.99-1.084-1.597-.072-2.097-.09-6.14-.09zM12 4.168c3.92 0 4.364.015 5.9.088 1.4.063 2.296.365 2.78.85s.787 1.38.85 2.78c.073 1.537.088 1.98.088 5.9s-.015 4.364-.088 5.9c-.063 1.4-.365 2.296-.85 2.78s-1.38.787-2.78.85c-1.537.073-1.98.088-5.9.088s-4.364-.015-5.9-.088c-1.4-.063-2.296-.365-2.78-.85s-.787-1.38-.85-2.78c-.073-1.537-.088-1.98-.088-5.9s.015-4.364.088-5.9c.063 1.4.365 2.296.85-2.78s1.38-.787 2.78-.85c1.537-.073 1.98-.088 5.9-.088zM12 8.27a3.72 3.72 0 100 7.44 3.72 3.72 0 000-7.44zM12 14a2 2 0 110-4 2 2 0 010 4zm5.5-6.5a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"
                   clipRule="evenodd"
                 />
               </svg>
@@ -79,6 +101,20 @@ const Navbar = () => {
             </a>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <Link
+                to="/menu"
+                className="text-white hover:bg-red-500 block px-3 py-2 rounded-md text-base font-medium"
+              >
+                Our Menu
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
