@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MenuPage from "./pages/MenuPage";
+import CartPage from "./pages/CartPage"; // Import the CartPage
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/menu" element={<MenuPage />} />
+          <Route path="/cart" element={<CartPage />} />{" "}
+          {/* Add the cart route */}
         </Routes>
       </main>
     </Router>

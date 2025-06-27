@@ -14,10 +14,6 @@ const MenuPage = () => {
     }
   }, [location]);
 
-  const handleScrollToOrderForm = () => {
-    orderFormRef.current.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <div className="bg-gray-900 min-h-screen text-white">
       <div className="container mx-auto px-4 py-12">
@@ -32,11 +28,7 @@ const MenuPage = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {menuData.appetizers.map((item) => (
-              <MenuItemCard
-                key={item.id}
-                item={item}
-                onOrderClick={handleScrollToOrderForm}
-              />
+              <MenuItemCard key={item.id} item={item} />
             ))}
           </div>
         </div>
@@ -48,11 +40,7 @@ const MenuPage = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {menuData.steaks.map((item) => (
-              <MenuItemCard
-                key={item.id}
-                item={item}
-                onOrderClick={handleScrollToOrderForm}
-              />
+              <MenuItemCard key={item.id} item={item} />
             ))}
           </div>
         </div>
@@ -64,11 +52,7 @@ const MenuPage = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {menuData.sides.map((item) => (
-              <MenuItemCard
-                key={item.id}
-                item={item}
-                onOrderClick={handleScrollToOrderForm}
-              />
+              <MenuItemCard key={item.id} item={item} />
             ))}
           </div>
         </div>

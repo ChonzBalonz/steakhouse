@@ -1,12 +1,18 @@
 import React, { useState } from "react";
+import { useCart } from "../context/CartContext";
 
-const MenuItemCard = ({ item, onOrderClick }) => {
+const MenuItemCard = ({ item }) => {
   const [cookingOption, setCookingOption] = useState(
     item.options ? item.options[0] : null
   );
+  const { addToCart } = useCart();
 
   const handleAddToOrder = () => {
-    onOrderClick();
+    const itemToAdd = {
+      ...item,
+      selectedOption: cookingOption,
+    };
+    addToCart(itemToAdd);
     alert(`${item.name} added to order!`);
   };
 
@@ -16,6 +22,7 @@ const MenuItemCard = ({ item, onOrderClick }) => {
         src={item.image}
         alt={item.name}
         className="w-full h-48 object-cover"
+        loading="lazy"
       />
       <div className="p-6">
         <h3 className="text-2xl font-bold mb-2">{item.name}</h3>
