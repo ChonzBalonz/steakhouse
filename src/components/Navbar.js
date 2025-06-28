@@ -39,14 +39,11 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6">
-          {/* Menu Button */}
           <Link to="/menu">
             <button className="bg-white text-gray-900 font-bold py-2 px-6 rounded-lg hover:bg-red-500 hover:text-white transition duration-300">
               Our Menu
             </button>
           </Link>
-
-          {/* Cart Icon */}
           <Link to="/cart" className="relative">
             <svg
               className="w-8 h-8 hover:text-red-500"
@@ -68,7 +65,6 @@ const Navbar = () => {
               </span>
             )}
           </Link>
-
           {/* Social Media Icons */}
           <div className="flex items-center space-x-4">
             <a
@@ -128,6 +124,28 @@ const Navbar = () => {
               </svg>
             </a>
           </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`mobile-menu ${
+            isOpen ? "open" : ""
+          } md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-95 flex flex-col items-center justify-center`}
+        >
+          <Link
+            to="/menu"
+            className="text-white text-2xl mb-4"
+            onClick={() => setIsOpen(false)}
+          >
+            Our Menu
+          </Link>
+          <Link
+            to="/cart"
+            className="text-white text-2xl"
+            onClick={() => setIsOpen(false)}
+          >
+            Cart
+          </Link>
         </div>
       </div>
     </header>
