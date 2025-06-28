@@ -31,22 +31,22 @@ const HomePage = () => {
         />
         <div className="absolute inset-0 bg-black opacity-60 z-10"></div>
         <div className="relative z-20 flex flex-col md:flex-row h-full">
-          <div className="w-full md:w-1/4 p-8 flex flex-col justify-center text-white bg-black bg-opacity-75">
-            <h2 className="text-3xl font-bold mb-4 text-center font-heading">
+          <div className="w-full md:w-1/4 p-4 sm:p-8 flex flex-col justify-center text-white bg-black bg-opacity-75">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-center font-heading">
               About Us
             </h2>
-            <p className="leading-relaxed text-center">
+            <p className="leading-relaxed text-center text-sm sm:text-base">
               Welcome to The Sizzling Steak, where we serve only the finest cuts
               of meat, cooked to perfection. Our mission is to provide an
               unforgettable dining experience with exceptional service and a
               cozy atmosphere.
             </p>
           </div>
-          <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-white text-center p-8">
-            <h1 className="text-5xl md:text-7xl font-bold pb-44 font-heading">
+          <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-white text-center p-4 sm:p-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold pb-44 font-heading">
               SizzleSteakHouse
             </h1>
-            <p className="text-lg md:text-2xl mt-4">
+            <p className="text-base sm:text-lg md:text-2xl mt-4">
               Experience the best steak in town
             </p>
             <button
@@ -59,20 +59,26 @@ const HomePage = () => {
               Order Now
             </button>
           </div>
-          <div className="w-full md:w-1/4 p-8 flex flex-col justify-center text-white bg-black bg-opacity-75">
-            <h2 className="text-3xl font-bold mb-4 text-center">
+          <div className="w-full md:w-1/4 p-4 sm:p-8 flex flex-col justify-center text-white bg-black bg-opacity-75">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-center">
               Hours & Contact
             </h2>
-            <div className="text-lg text-center space-y-4">
+            <div className="text-base sm:text-lg text-center space-y-4">
               <div>
                 <h3 className="text-xl font-semibold mb-2">Business Hours</h3>
-                <p>Monday - Friday: 5:00 PM - 10:00 PM</p>
-                <p>Saturday - Sunday: 4:00 PM - 11:00 PM</p>
+                <p className="text-sm sm:text-base">
+                  Monday - Friday: 5:00 PM - 10:00 PM
+                </p>
+                <p className="text-sm sm:text-base">
+                  Saturday - Sunday: 4:00 PM - 11:00 PM
+                </p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-2">Contact Us</h3>
-                <p>Phone: (123) 456-7890</p>
-                <p>Email: contact@thesizzlingsteak.com</p>
+                <p className="text-sm sm:text-base">Phone: (123) 456-7890</p>
+                <p className="text-sm sm:text-base">
+                  Email: contact@thesizzlingsteak.com
+                </p>
               </div>
             </div>
           </div>
